@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "c-ts": "tsc src/index.ts --target es6",
+    "start-ts": "npm run c-ts && npm run start",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
