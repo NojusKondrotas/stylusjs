@@ -2,11 +2,15 @@
   "name": "editor",
   "version": "1.0.0",
   "description": "An easily extendable and integrable lightweight WYSIWYG editor.",
-  "main": "index.js",
+  "main": "editor.js",
   "scripts": {
-    "c-ts": "tsc src/index.ts --target es6",
-    "start-ts": "npm run c-ts && npm run start",
-    "start": "node src/index.js",
+    "c-ts": "tsc src/editor.ts --target es6",
+    "d-start-ts": "npm run c-ts && npm run d-start",
+    "d-start": "open src/index.html",
+    "l-start-ts": "npm run c-ts && npm run l-start",
+    "l-start": "xdg-open src/index.html",
+    "w-start-ts": "npm run c-ts && npm run w-start",
+    "w-start": "start src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
