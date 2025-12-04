@@ -1,7 +1,7 @@
 {
-  "name": "editor",
+  "name": "stylusjs",
   "version": "1.0.0",
-  "description": "An easily extendable and integrable lightweight WYSIWYG editor.",
+  "description": "StylusJS is an easily extendable and integrable WYSIWYG editor.",
   "main": "editor.js",
   "scripts": {
     "c-ts": "tsc",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NojusKondrotas/editor.git"
+    "url": "git+https://github.com/NojusKondrotas/stylusjs.git"
   },
   "keywords": [],
   "author": "",

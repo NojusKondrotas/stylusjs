@@ -1,2 +1,2 @@
 # editor
-An easily extendable and integrable lightweight WYSIWYG editor.
+StylusJS is an easily extendable and integrable WYSIWYG editor.
