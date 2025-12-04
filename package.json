@@ -2,7 +2,7 @@
   "name": "stylusjs",
   "version": "1.0.0",
   "description": "StylusJS is an easily extendable and integrable WYSIWYG editor.",
-  "main": "editor.js",
+  "main": "src/core/stylus.js",
   "scripts": {
     "c-ts": "tsc",
     "start-ts": "npm run c-ts && npm run start",
@@ -17,7 +17,7 @@
   "author": "",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/NojusKondrotas/editor/issues"
+    "url": "https://github.com/NojusKondrotas/stylusjs/issues"
   },
-  "homepage": "https://github.com/NojusKondrotas/editor#readme"
+  "homepage": "https://github.com/NojusKondrotas/stylusjs#readme"
 }
