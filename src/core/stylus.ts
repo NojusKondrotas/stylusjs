@@ -71,18 +71,18 @@ interface StylusOptionsI {
     contentClass: string;
     toolbarClass: string;
     isSingleToolbar: boolean;
-    isToolbarFixed: boolean;
-    fixedToolbarSide: 'up' | 'right' | 'down' | 'left' | null;
+    toolbarPosition: string;
+    fixedToolbarSide: 'up' | 'right' | 'down' | 'left' | 'any';
     toolbarOffset: { x: number, y: number };
 }
 
 class StylusOptions implements StylusOptionsI {
-    contentClass: string = "";
-    toolbarClass: string = "";
-    isSingleToolbar: boolean = false;
-    isToolbarFixed: boolean = false;
-    fixedToolbarSide: 'up' | 'right' | 'down' | 'left' | null = null;
-    toolbarOffset: { x: number, y: number } = { x: 0, y: 0 };
+    contentClass = "";
+    toolbarClass = "";
+    isSingleToolbar = false;
+    toolbarPosition = 'initial';
+    fixedToolbarSide: 'up' | 'right' | 'down' | 'left' | 'any' = 'any';
+    toolbarOffset = { x: 0, y: 0 };
 
     constructor(options: StylusOptionsI){
         Object.assign(this, options);
