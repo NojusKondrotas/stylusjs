@@ -93,7 +93,7 @@ class StylusOptions implements StylusOptionsI {
     }
 }
 
-function initStylus(options: StylusOptionsI, className: string){
+function initStylus(options: StylusOptionsI){
     chosenStylusOptions = new StylusOptions(options)
 }
 
