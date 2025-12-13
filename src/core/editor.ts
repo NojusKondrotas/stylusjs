@@ -1,14 +1,19 @@
-const tmpNodes: NodeListOf<HTMLParagraphElement> = document.querySelectorAll("p");
-const paragraphs: HTMLParagraphElement[] = [];
-for(let i = 0; i < tmpNodes.length; ++i){
-    paragraphs.push(tmpNodes[i] as HTMLParagraphElement);
+import { chosenStylusOptions } from "./stylus";
+
+let stylusTargets: HTMLElement[] = [];
+
+function initEditor() {
+    const tmpNodes: HTMLCollectionOf<Element> = document.getElementsByClassName(chosenStylusOptions.contentClass);
+    for(let i = 0; i < tmpNodes.length; ++i){
+        stylusTargets.push(tmpNodes[i] as HTMLElement);
+    }
 }
 
-function focusParagraph(coordinates: { x: number, y: number }){
-    const p = getNearestParagraph(coordinates);
-    if(!p)
+function focusTarget(coordinates: { x: number, y: number }){
+    const t = getNearestTarget(coordinates);
+    if(!t)
         return;
-    p.focus();
+    t.focus();
 
     const sel: Selection | null = window.getSelection();
     if(!sel)
@@ -18,8 +23,8 @@ function focusParagraph(coordinates: { x: number, y: number }){
     const pos = document.caretPositionFromPoint(coordinates.x, coordinates.y);
     if(pos){
         range = document.createRange();
-        if(p.textContent === ""){
-            range.setStart(p, 0);
+        if(t.textContent === ""){
+            range.setStart(t, 0);
         }else{
             range.setStart(pos.offsetNode, pos.offset);
         }
@@ -35,24 +40,24 @@ function focusParagraph(coordinates: { x: number, y: number }){
 document.body.addEventListener('click', (e: MouseEvent) => {
     e.preventDefault();
     
-    if((e.target as HTMLParagraphElement).tagName === "P")
+    if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
         return;
     
-    focusParagraph({ x: e.clientX, y: e.clientY });
+    focusTarget({ x: e.clientX, y: e.clientY });
 })
 
-function getNearestParagraph(pos: { x: number, y: number } = { x: 0, y: 0 }): HTMLParagraphElement | null{
-    let nearestP: HTMLParagraphElement | null = null;
+function getNearestTarget(pos: { x: number, y: number } = { x: 0, y: 0 }): HTMLElement | null{
+    let nearestT: HTMLElement | null = null;
     let minDistance: number = Infinity;
 
-    paragraphs.forEach((p) => {
-        let rect: DOMRect = p.getBoundingClientRect();
+    stylusTargets.forEach((t) => {
+        let rect: DOMRect = t.getBoundingClientRect();
         let distance = Math.abs(pos.y - rect.top);
         if(distance < minDistance){
             minDistance = distance;
-            nearestP = p;
+            nearestT = t;
         }
     })
 
-    return nearestP;
+    return nearestT;
 }
