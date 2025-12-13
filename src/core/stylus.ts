@@ -1,4 +1,5 @@
 import { FormatStructure } from "../formats/format-structure";
+import { formatSelection } from "./format";
 
 export let chosenStylusOptions: StylusOptions;
 export let chosenToolbarPrototype: StylusToolbarInteractions;
@@ -7,12 +8,12 @@ type EventListeners = Record<string, EventListenerOrEventListenerObject>;
 
 export class StylusToolbarInteractionNode {
     formatter: FormatStructure;
-    domElement: HTMLElement | null;
     eventListeners: EventListeners = {};
+    parentToolbar: StylusToolbarInteractions;
 
-    constructor(formatter: FormatStructure, domElement: HTMLElement) {
+    constructor(formatter: FormatStructure, p: StylusToolbarInteractions) {
         this.formatter = formatter;
-        this.domElement = domElement;
+        this.parentToolbar = p;
     }
 
     addListeners(listeners: EventListeners) {
@@ -41,11 +42,13 @@ export class StylusToolbarInteractionNode {
     }
 }
 
-class StylusToolbarInteractions {
+export class StylusToolbarInteractions {
     formatterNodes: StylusToolbarInteractionNode[] = [];
+    domTarget: HTMLElement | null;
 
     constructor(interactions: StylusToolbarInteractionNode[]) {
         this.formatterNodes = interactions;
+        this.domTarget = null;
     }
 
     get(idx: number): StylusToolbarInteractionNode | null {
@@ -72,6 +75,10 @@ class StylusToolbarInteractions {
         } else {
             this.append(interaction);
         }
+    }
+
+    format(formmater: FormatStructure) {
+        formatSelection(formmater);
     }
 }
 
