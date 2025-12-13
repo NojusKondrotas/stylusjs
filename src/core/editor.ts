@@ -37,15 +37,6 @@ function focusTarget(coordinates: { x: number, y: number }){
     sel.addRange(range);
 }
 
-document.body.addEventListener('click', (e: MouseEvent) => {
-    e.preventDefault();
-    
-    if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
-        return;
-    
-    focusTarget({ x: e.clientX, y: e.clientY });
-})
-
 function getNearestTarget(pos: { x: number, y: number } = { x: 0, y: 0 }): HTMLElement | null{
     let nearestT: HTMLElement | null = null;
     let minDistance: number = Infinity;
@@ -60,4 +51,26 @@ function getNearestTarget(pos: { x: number, y: number } = { x: 0, y: 0 }): HTMLE
     })
 
     return nearestT;
+}
+
+function initParentFocusTransmision(container: HTMLElement) {
+    container.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        
+        if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
+            return;
+        
+        focusTarget({ x: e.clientX, y: e.clientY });
+    })
+}
+
+function initWindowFocusTransmision() {
+    window.addEventListener('click', (e: MouseEvent) => {
+        e.preventDefault();
+        
+        if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
+            return;
+        
+        focusTarget({ x: e.clientX, y: e.clientY });
+    })
 }
