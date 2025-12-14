@@ -1,9 +1,9 @@
-import { chosenStylusOptions } from "./stylus";
+import { StylusConfiguration } from "./stylus";
 
 let stylusTargets: HTMLElement[] = [];
 
 function initEditor() {
-    const tmpNodes: HTMLCollectionOf<Element> = document.getElementsByClassName(chosenStylusOptions.contentClass);
+    const tmpNodes: HTMLCollectionOf<Element> = document.getElementsByClassName(StylusConfiguration.StylusOptions.contentClass);
     for(let i = 0; i < tmpNodes.length; ++i){
         stylusTargets.push(tmpNodes[i] as HTMLElement);
     }
@@ -57,7 +57,7 @@ function initParentFocusTransmision(container: HTMLElement) {
     container.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         
-        if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
+        if((e.target as HTMLElement).classList.contains(StylusConfiguration.StylusOptions.contentClass))
             return;
         
         focusTarget({ x: e.clientX, y: e.clientY });
@@ -68,7 +68,7 @@ function initWindowFocusTransmision() {
     window.addEventListener('click', (e: MouseEvent) => {
         e.preventDefault();
         
-        if((e.target as HTMLElement).classList.contains(chosenStylusOptions.contentClass))
+        if((e.target as HTMLElement).classList.contains(StylusConfiguration.StylusOptions.contentClass))
             return;
         
         focusTarget({ x: e.clientX, y: e.clientY });
