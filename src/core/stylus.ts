@@ -2,9 +2,9 @@ import { FormatStructure } from "../formats/format-structure";
 import { formatSelection } from "./format";
 
 export class StylusConfiguration {
-    static chosenStylusOptions: StylusOptions;
-    static chosenToolbarPrototype: StylusToolbarInteractions;
-    static toolbarInteractorClickEvent: Record<string, EventListenerOrEventListenerObject> = {
+    static StylusOptions: StylusOptions;
+    static ToolbarPrototype: StylusToolbarInteractions;
+    static ToolbarInteractorClickEvent: Record<string, EventListenerOrEventListenerObject> = {
         click: function(this: StylusToolbarInteractionNode, e: Event) {
             this.parentToolbar.format(this.formatter);
         }
@@ -24,7 +24,7 @@ export class StylusToolbarInteractionNode {
     }
 
     addDefaultListener() {
-        this.eventListeners = { ...this.eventListeners, ...StylusConfiguration.toolbarInteractorClickEvent };
+        this.eventListeners = { ...this.eventListeners, ...StylusConfiguration.ToolbarInteractorClickEvent };
     }
 
     addListeners(listeners: EventListeners) {
@@ -120,13 +120,13 @@ class StylusOptions implements StylusOptionsI {
 }
 
 function initStylus(options: StylusOptionsI){
-    StylusConfiguration.chosenStylusOptions = new StylusOptions(options);
+    StylusConfiguration.StylusOptions = new StylusOptions(options);
 }
 
 function updateStylusOptions(options: Partial<StylusOptionsI>){
-    StylusConfiguration.chosenStylusOptions.update(options);
+    StylusConfiguration.StylusOptions.update(options);
 }
 
 function initToolbarPrototype(interactions: StylusToolbarInteractionNode[]) {
-    StylusConfiguration.chosenToolbarPrototype = new StylusToolbarInteractions(interactions);
+    StylusConfiguration.ToolbarPrototype = new StylusToolbarInteractions(interactions);
 }
