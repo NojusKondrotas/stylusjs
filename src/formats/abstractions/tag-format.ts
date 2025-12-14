@@ -1,4 +1,4 @@
-export interface TagFormat {
-    formatName: string;
-    elementName: string;
+export abstract class TagFormat {
+    abstract formatName: string;
+    abstract elementName: string;
 }

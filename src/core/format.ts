@@ -1,5 +1,5 @@
-import type { TagFormat } from "../formats/abstractions/tag-format.js";
-import type { CSSFormat } from "../formats/abstractions/css-format.js";
+import { TagFormat } from "../formats/abstractions/tag-format";
+import { CSSFormat } from "../formats/abstractions/css-format";
 import { Blockquote } from "../formats/blockquote.js";
 import { Bold } from "../formats/bold.js";
 import { Code } from "../formats/code.js";

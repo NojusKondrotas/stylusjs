@@ -1,4 +1,4 @@
-import type { TagFormat } from "./abstractions/tag-format";
+import { TagFormat } from "./abstractions/tag-format.js";
 
 export const Header: TagFormat = {
     formatName: 'header',

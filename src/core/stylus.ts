@@ -1,6 +1,6 @@
 import * as Editor from "./editor.js";
 import * as Toolbar from "./toolbar.js";
-import type { TagFormat } from "../formats/abstractions/tag-format.js";
+import { TagFormat } from "../formats/abstractions/tag-format.js";
 import { formatSelection } from "./format.js";
 
 export class StylusConfiguration {
