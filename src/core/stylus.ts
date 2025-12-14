@@ -96,7 +96,6 @@ export class StylusToolbarInteractions {
 interface StylusOptionsI {
     contentClass: string;
     toolbarClass: string;
-    isSingleToolbar: boolean;
     toolbarPosition: string;
     fixedToolbarSide: 'top' | 'right' | 'bottom' | 'left' | 'any';
     toolbarOffset: { x: number, y: number };
@@ -105,7 +104,6 @@ interface StylusOptionsI {
 class StylusOptions implements StylusOptionsI {
     contentClass = "";
     toolbarClass = "";
-    isSingleToolbar = false;
     toolbarPosition = 'initial';
     fixedToolbarSide: 'top' | 'right' | 'bottom' | 'left' | 'any' = 'any';
     toolbarOffset = { x: 0, y: 0 };
