@@ -3,6 +3,11 @@ import * as Toolbar from "./toolbar.js";
 import { TagFormat } from "../formats/abstractions/tag-format.js";
 import { formatSelection } from "./format.js";
 
+import { Bold } from "../formats/bold.js";
+document.getElementById('format-btn')?.addEventListener('click', () => {
+    formatSelection(Bold);
+})
+
 export class StylusConfiguration {
     static StylusOptions: StylusOptions;
     static ToolbarPrototype: StylusToolbarInteractions;
